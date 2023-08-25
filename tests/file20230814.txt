@@ -1,0 +1,12 @@
+In ModesIntExt, Search for records where Model_Status = 1 and Model_Type = 4
+
+In ModelAlloc
+
+Level 1
+Output1 => Records where Model_Id = 73439 and Parent_Alloc_Id = null.
+Output2 => Records where Model_Id = Output1.Node_Model_Id
+
+Leve 2
+Output3a => Select each record in Output2.
+   Output3b => Search for records where Model_Id = 73439 and Parent_Allocation_Id = Output3a.Allocation_Id
+   Output3c => Search for records where Model_Id = Output3b.Node_Model_Id

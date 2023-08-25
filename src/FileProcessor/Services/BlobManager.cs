@@ -1,5 +1,4 @@
 ﻿using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -21,9 +20,9 @@ namespace FileProcessor.Services
 
             BlobClient blobClient = blobContainerClient.GetBlobClient(blobName);
 
-            BlobDownloadInfo blobDownloadInfo = await blobClient.DownloadAsync();
+            var content = await blobClient.DownloadContentAsync();
 
-            return blobDownloadInfo.Content;
+            return content.Value != null ? content.Value.Content.ToStream() : null;
         }
 
         public async Task<bool> UploadBlobAsync(string container, string blobName, Stream content)

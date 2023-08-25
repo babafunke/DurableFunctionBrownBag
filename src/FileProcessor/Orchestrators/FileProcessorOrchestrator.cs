@@ -18,11 +18,18 @@ namespace FileProcessor.Orchestrators
             {
                 var blobName = context.GetInput<string>();
 
+                if(string.IsNullOrEmpty(blobName))
+                {
+                    log.LogError("File name cannot be empty or null");
+                    throw new Exception("File name cannot be empty or null");
+                }
+
                 var isFileFormatValid = await context.CallActivityAsync<bool>(StringConstants.ValidateFileFormatActivity, blobName);
 
                 if (!isFileFormatValid)
                 {
                     log.LogError("Step 1: File format is invalid");
+                    return;
                 }
 
                 log.LogInformation("Step 1: File format is valid");
@@ -32,6 +39,7 @@ namespace FileProcessor.Orchestrators
                 if (!isFileNameValid)
                 {
                     log.LogError("Step 2: File name is invalid");
+                    return;
                 }
 
                 log.LogInformation("Step 2: File name is valid");

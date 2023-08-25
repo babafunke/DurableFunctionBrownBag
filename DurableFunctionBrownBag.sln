@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C8EB7C3A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileProcessor", "src\FileProcessor\FileProcessor.csproj", "{772C55CC-D2B2-476C-BE79-1774A4227F22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileProcessorTests", "tests\FileProcessorTests\FileProcessorTests.csproj", "{7DCEA5A5-BB2D-421E-83E6-A7E18EDE6B8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileProcessorTests", "tests\FileProcessorTests\FileProcessorTests.csproj", "{7DCEA5A5-BB2D-421E-83E6-A7E18EDE6B8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
